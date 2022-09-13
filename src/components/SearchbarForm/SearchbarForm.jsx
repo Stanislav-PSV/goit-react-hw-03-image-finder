@@ -22,7 +22,7 @@ class SearchbarForm extends Component {
 		e.preventDefault();
 
 		if (this.state.searchQuery.trim() === '') {
-			toast.warn('Введіть слово для пошуку');
+			toast.warn('Enter a word to search for');
 			return;
 		}
 		this.props.onSubmit(this.state.searchQuery);
@@ -40,7 +40,7 @@ class SearchbarForm extends Component {
 					type="text"
 					autoComplete="off"
 					autoFocus
-					placeholder="Пошук зображень та фотографій"
+					placeholder="Search for images and photos"
 					value={this.state.searchQuery}
 					onChange={this.handleValueChange}
 				/>
@@ -50,7 +50,7 @@ class SearchbarForm extends Component {
 }
 
 SearchbarForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+	onSubmit: PropTypes.func.isRequired,
 };
 
 export default SearchbarForm;

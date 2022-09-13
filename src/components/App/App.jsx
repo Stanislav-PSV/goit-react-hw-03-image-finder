@@ -24,7 +24,7 @@ export class App extends Component {
 		isEmpty: false,
 		error: null,
 		per_page: 12,
-	
+
 	};
 
 	componentDidUpdate(_, prevState) {
@@ -35,27 +35,27 @@ export class App extends Component {
 	}
 
 	getPhotos = async (query, page) => {
-    if (!query) return;
-    this.setState({ isLoading: true });
-    try {
-      const {
-        hits,
+		if (!query) return;
+		this.setState({ isLoading: true });
+		try {
+			const {
+				hits,
 				totalHits,
-      } = await imagesAPI(query, page);
-      console.log(hits, totalHits);
-      if (hits.length === 0) {
-        this.setState({ isEmpty: true });
-      }
-      this.setState(prevState => ({
-        images: [...prevState.images, ...hits],
-        loadMore: this.state.page < Math.ceil(totalHits / this.state.per_page),
-      }));
-    } catch (error) {
-      this.setState({ error: error.message });
-    } finally {
-      this.setState({ isLoading: false });
-    }
-  };
+			} = await imagesAPI(query, page);
+			console.log(hits, totalHits);
+			if (hits.length === 0) {
+				this.setState({ isEmpty: true });
+			}
+			this.setState(prevState => ({
+				images: [...prevState.images, ...hits],
+				loadMore: this.state.page < Math.ceil(totalHits / this.state.per_page),
+			}));
+		} catch (error) {
+			this.setState({ error: error.message });
+		} finally {
+			this.setState({ isLoading: false });
+		}
+	};
 
 	handleFormSubmit = searchQuery => {
 		this.setState({
@@ -92,16 +92,16 @@ export class App extends Component {
 			<AppContainer>
 				<Searchbar onSubmit={this.handleFormSubmit} />
 				<ToastContainer position="top-center" autoClose={3000} />
-				
+
 				{isLoading && <Loader />}
 				{isEmpty && <ImageErrorView
-					message={`Немає картинки з ім'ям '${this.state.searchQuery}'`}
+					message={`There is no picture with a name '${this.state.searchQuery}'`}
 				/>}
 				{searchQuery ? <ImageGallery
 					openModal={this.openModal}
 					images={images}
-				/> : <Notify >Введіть слово в пошуковий рядочок</Notify>}
-				
+				/> : <Notify >Enter a word in the search bar</Notify>}
+
 				{loadMore && <Button onClick={this.loadMore} page={page} />}
 				{showModal && (
 					<Modal

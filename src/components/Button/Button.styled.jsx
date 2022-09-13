@@ -7,7 +7,7 @@ padding: 8px 16px;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   display: inline-block;
-  color: #fff;
+  color: #000;
   border: 0;
   text-decoration: none;
   cursor: pointer;
@@ -22,6 +22,6 @@ padding: 8px 16px;
 
 	&:hover,
 	&:focus {
-  background-color: #303f9f;
+  background-color: #FFFF00;
 }
 `

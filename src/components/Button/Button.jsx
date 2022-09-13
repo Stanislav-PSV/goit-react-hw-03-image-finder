@@ -1,10 +1,10 @@
 import { PropTypes } from 'prop-types';
-import {ButtonStyle } from './Button.styled';
+import { ButtonStyle } from './Button.styled';
 
 
-const Button = ({  onClick, }) => (
+const Button = ({ onClick, }) => (
 	<ButtonStyle type="button" onClick={onClick} >
-		 Завантажити ще...
+		Load more...
 	</ButtonStyle>
 );
 
